@@ -18,12 +18,12 @@ def init(dispatcher: Dispatcher):
 
 @restricted
 def get_help(update, context):
-    message = 'Send a Google Drive link, or forward a message with a Google Drive link to manually transfer.\n' \
-              'Configuration with /sa and /folders is required.\n\n' \
-              '📚 Commands:\n' \
+    message = 'Gửi liên kết Google Drive hoặc chuyển tiếp tin nhắn có liên kết Google Drive để Clone file.\n' \
+              'Sau đó tải lên /sa và cấu hình /folders cần sử dụng.\n\n' \
+              '📚 Lệnh Commands:\n' \
               ' │ /folders - Set favorite folders\n' \
-              ' │ /sa - Private chat only, upload a ZIP containing SA accounts with this command as the subject.\n' \
-              ' │ /help - Output this message\n'
+              ' │ /sa - Chỉ hợp lệ khi Private, tải lên tệp ZIP chứa các tài khoản SA với lệnh này.\n' \
+              ' │ /help - Hiển thị ra thông báo này\n'
     rsp = update.message.reply_text(message)
     rsp.done.wait(timeout=60)
     message_id = rsp.result().message_id
