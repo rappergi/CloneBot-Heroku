@@ -18,9 +18,9 @@ def init(dispatcher: Dispatcher):
 
 @restricted
 def start(update, context):
-    rsp = update.message.reply_text('🔺 First, send me a ZIP archive containing the SA files and add /sa to the subject.\n'
-                                    '📂 After that, use /folders to set destination folders.\n'
-                                    '🔗 You are now ready to go! Just forward or send a Google Drive link.')
+    rsp = update.message.reply_text('🔺 Step 1 : Hãy gửi cho tôi file ZIP chứa các tệp SA và thêm /sa vào phía dưới file.\n'
+                                    '📂 Step 2 : Sử dụng lệnh /folders để đặt thư mục đích.\n'
+                                    '🔗 Step 3 : Tất cả đã sẵn sàng! Chỉ cần Forward hoặc link Google Drive')
     rsp.done.wait(timeout=60)
     message_id = rsp.result().message_id
     if update.message.chat_id < 0:
