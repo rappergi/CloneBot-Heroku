@@ -25,8 +25,8 @@ def init(dispatcher: Dispatcher):
 
 @restricted_private
 def get_sa(update, context):
-    instruction_text = 'Please private message a ZIP archive 🗂 containing SA files and write /sa in the subject.\n' \
-                       '📱 If you are using your phone, upload the ZIP archive first, then reply with /sa'
+    instruction_text = 'Vui lòng gửi cho tôi tệp ZIP 🗂 chứa các tệp SA và ghi / sa kèm theo tệp.\n' \
+                       '📱 Nếu bạn sử dụng điện thoại, hãy upload tệp ZIP trước, sau đó reply với lệnh /sa'
     if update.message and update.message.caption and update.message.caption.startswith('/sa'):
         document = update.message.document
     elif update.message and update.message.reply_to_message:
@@ -106,5 +106,5 @@ def get_sa(update, context):
     with open(os.path.join(zip_path, 'rclone.conf'), 'w') as file_to_write:
         config_file.write(file_to_write)
 
-    update.message.reply_text('✔️ A total of {} SA files were received and configured. \n │ Now bookmark your favorite folders with /folders'.format(json_count))
+    update.message.reply_text('✔️ Có tổng cộng {} files SA đã nhận và config. \n │ Bây giờ hãy đánh dấu các thư mục yêu thích của bạn bằng lệnh / folders'.format(json_count))
     logger.info('{} service account files have been saved for {}.'.format(json_count, update.effective_user.id))
